@@ -1,0 +1,30 @@
+package runners;
+
+import org.junit.runner.RunWith;
+
+import cucumber.api.junit.Cucumber;
+
+@RunWith(Cucumber.class)
+@CucumberOptions(
+		
+		features = ".\\src\\test\\java\\features\\Login.feature",
+		glue = "steps",
+		tags = "",
+		monochrome = true,
+		dryRun = false,
+		plugin = {
+				
+				"pretty",
+				"html:target/cucumber",
+				
+		}
+		
+		
+		)
+	
+	
+	
+
+public class Login {
+
+}

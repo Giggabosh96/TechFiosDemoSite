@@ -1,0 +1,20 @@
+package pages;
+
+public class DatabasePage {
+
+	public String getData() {
+		try {
+			
+			//setting properties for mysql
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			String sqlUrl = "jdbc:mysql://localhost:";
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+
+		}
+		return null;
+
+	}
+}

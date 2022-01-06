@@ -1,0 +1,10 @@
+package pages;
+
+public class DatabasePage {
+
+	public String getData() {
+		
+		return null;
+		
+	}
+}

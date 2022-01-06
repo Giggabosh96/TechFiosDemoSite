@@ -1,0 +1,45 @@
+package steps;
+
+import org.omg.PortableInterceptor.USER_EXCEPTION;
+import org.openqa.selenium.support.PageFactory;
+
+import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
+import pages.LoginPage;
+import pages.TestBase;
+
+public class LoginStepDefinitions extends TestBase{
+	
+	LoginPage loginpage;
+	
+	@Given ("^user is on TechFios Login Site$")	
+	public void user_is_on_TechFios_Login_Site() {
+		init();
+		driver.get("https://techfios.com/billing/?ng=login/");
+	}
+	
+	@When ("^user enters valid username as \"([^\"]*)\"$")	
+	public void user_enters_valid_username_as(String username) throws Throwable{
+		loginpage = PageFactory.initElements(driver, LoginPage.class);
+		loginpage.enterUsername(username);
+	}
+	
+	@When("^user enters valid password as \"([^\"]*)\"$")
+	public void user_enters_valid_password_as(String password) throws Throwable {
+		loginpage = PageFactory.initElements(driver, LoginPage.class);
+		loginpage.enterUsername(password);
+	}
+
+	@When("^user clicks on sign in button$")
+	public void user_clicks_on_sign_in_button() throws Throwable {
+		loginpage = PageFactory.initElements(driver, LoginPage.class);
+		loginpage.ClickSignInButton();
+	}
+
+	@Then("^user will land on Dashboard page$")
+	public void user_will_land_on_Dashboard_page() throws Throwable {
+		
+	    System.out.println("user landed on dashboard page");
+	}
+}

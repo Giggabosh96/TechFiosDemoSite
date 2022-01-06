@@ -1,0 +1,49 @@
+package steps;
+
+import org.junit.Assert;
+import org.openqa.selenium.support.PageFactory;
+
+import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
+import pages.LoginPage;
+import pages.TestBase;
+
+public class LoginStepDefinitions extends TestBase{
+	
+	LoginPage loginpage;
+	
+	@Given ("^user is on TechFios Login Site$")	
+	public void user_is_on_TechFios_Login_Site() {
+		init();
+		driver.get("https://techfios.com/billing/?ng=login/");
+	}
+	
+	@When ("^user enters username as \"([^\"]*)\"$")	
+	public void user_enters_username_as(String username) throws Throwable{
+		loginpage = PageFactory.initElements(driver, LoginPage.class);
+		loginpage.enterUsername(username);
+		Thread.sleep(3000);
+	}
+	
+	@When("^user enters password as \"([^\"]*)\"$")
+	public void user_enters_password_as(String password) throws Throwable {
+		loginpage.enterPassword(password);
+		Thread.sleep(3000);
+	}
+
+	@When("^user clicks on sign in button$")
+	public void user_clicks_on_sign_in_button() throws Throwable {
+		loginpage.ClickSignInButton();
+		Thread.sleep(3000);
+	}
+
+	@Then("^user will land on Dashboard page$")
+	public void user_will_land_on_Dashboard_page() throws Throwable {
+		loginpage.getPageTitleText();
+		String expectedTitle = "Dashboard- iBilling";
+		String actualTitle = loginpage.getPageTitleText();
+		Assert.assertEquals(expectedTitle, actualTitle);
+		System.out.println("User landed on Dashbaord page");	
+	}
+}

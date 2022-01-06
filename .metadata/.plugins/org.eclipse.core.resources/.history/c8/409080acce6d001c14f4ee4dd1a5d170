@@ -1,0 +1,37 @@
+Feature: Techfios Billing Site Functionality Testing 
+
+@One @Smoke 
+Scenario: 
+	User should be able to log into the Techfios Billing site with valid credentials 
+	Given user is on TechFios Login Site 
+	When user enters username as "demo@techfios.com" 
+	When user enters password as "abc123" 
+	When user clicks on sign in button 
+	Then user will land on Dashboard page 
+	
+@Two @Smoke 
+Scenario: 
+	User should not be able to log into the Techfios Billing site with invalid username 
+	Given user is on TechFios Login Site 
+	When user enters username as "demo1@techfios.com" 
+	When user enters password as "abc123" 
+	When user clicks on sign in button 
+	Then user will land on Dashboard page 
+	
+@Three @Smoke
+Scenario: 
+	User should be able to log into the Techfios Billing site with valid credentials 
+	Given user is on TechFios Login Site 
+	When user enters username as "demo@techfios.com" 
+	When user enters password as "abc1234" 
+	When user clicks on sign in button 
+	Then user will land on Dashboard page 
+	
+@Four @Smoke
+Scenario: 
+	User should not be able to log into the Techfios Billing site with invalid username 
+	Given user is on TechFios Login Site 
+	When user enters username as "demo1@techfios.com" 
+	When user enters password as "abc1234" 
+	When user clicks on sign in button 
+	Then user will land on Dashboard page   		

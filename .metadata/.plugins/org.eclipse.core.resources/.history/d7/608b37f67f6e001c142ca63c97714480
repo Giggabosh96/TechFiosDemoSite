@@ -1,0 +1,15 @@
+package pages;
+
+public class DatabasePage {
+
+	public String getData() {
+		try {
+			
+		}
+		catch(){
+			
+		}
+		return null;
+		
+	}
+}

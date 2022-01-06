@@ -1,0 +1,16 @@
+package pages;
+
+public class DatabasePage {
+
+	public String getData() {
+		try {
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+
+		}
+		return null;
+
+	}
+}
